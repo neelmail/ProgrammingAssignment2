@@ -1,7 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Calculates and saves inverse of a (singular) matrix
 
-## Write a short comment describing this function
+## Saves the input matrix and assigns a cache for the inverse matrix.
+## function also checks for singularity.
 
 makeCacheMatrix <- function(x = matrix()) {
     ## check if square matrix
@@ -11,7 +11,7 @@ makeCacheMatrix <- function(x = matrix()) {
     }
     ## check for singular matrix
     if(det(x) < 1.0e-8) {
-        message("singular matrix")
+        message("singular matrix does not have inverse")
         return()
     }
     ## main logic
@@ -31,7 +31,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## Computes inverse matrix and saves in cache. 
+## If inverse is already present in cache, calculation is skipped.
 
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
